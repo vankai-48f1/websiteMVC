@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Coffee.Models.Account>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var notification = TempData["notification"] as string;
+}
+
+
+@*
+    GIAO DIỆN DANH SÁCH CÁC TÀI KHOẢN DÀNH CHO QUẢN TRỊ
+*@
+
+<div class="mb-3 col-md-14">
+    <h1 class="text-center">DANH SÁCH TÀI KHOẢN</h1>
+    <a class="btn btn-success btn-tone m-r-5" asp-action="create">Tạo tài khoản</a>
+</div>
+<table id="table" class="table table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+    <thead>
+        <tr class="text-center">
+            <th>Tên đăng nhập</th>
+            <th>Vai trò</th>
+            <th>Trạng thái</th>
+            <th></th>
+        </tr>
+    </thead>
+</table>
+
+@section Scripts {
+        <script src="~/Custom/scripts.js"></script>
+}

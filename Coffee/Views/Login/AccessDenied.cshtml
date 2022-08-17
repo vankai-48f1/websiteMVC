@@ -1,0 +1,22 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="error-404-area section-space-top-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="error-404-content">
+                    <h1 class="title mb-5">HÔNG VÀO ĐƯỢC ĐÂU BÉ ƠI!</h1>
+                    <h2 class="sub-title mb-4">Truy cập bị từ chối!</h2>
+                    <p class="short-desc mb-7">Bạn không được phép truy cập trang này, vui lòng liên hệ quản trị viên TUẤN TỬ TẾ để biết thêm chi tiết !</p>
+                    <p class="short-desc mb-7">Nếu bạn muôn tiếp tục sử dụng website vui lòng nhấn nút quay lại bên dưới.</p>
+                    <div class="button-wrap">
+                        <a class="btn btn-custom-size lg-size btn-primary btn-secondary-hover rounded-0" asp-controller="Home" asp-action="Index">Quay lại</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

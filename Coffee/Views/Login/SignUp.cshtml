@@ -1,0 +1,132 @@
+﻿@model Coffee.Models.Account
+@{
+    Layout = null;
+    var error = TempData["Error"] as string;
+    var date = DateTime.Now;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tạo tài khoản</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/AdminAssets/images/logo/favicon.png">
+
+    <!-- page css -->
+    <!-- Core css -->
+    <link href="/AdminAssets/css/app.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="app">
+        <div class="container-fluid p-h-0 p-v-20 bg full-height d-flex" style="background-image: url('/AdminAssets/images/others/login-3.png')">
+            <div class="d-flex flex-column justify-content-between w-100">
+                <div class="container d-flex h-100">
+                    <div class="row align-items-center w-100">
+                        <div class="col-md-7 col-lg-5 m-h-auto">
+                            <div class="card shadow-lg">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-between m-b-30">
+                                        <a asp-controller="Home" asp-action="Index">
+                                            <img class="img-fluid" alt="" src="/Assets/images/logo/dark.png">
+                                        </a>
+                                        <h2 class="fw-bold">Đăng ký</h2>
+                                    </div>
+                                     <!-- Biểu mẫu đăng ký -->
+                                   <form asp-controller="Accounts" asp-action="create_customer" method="post">
+                                        <!-- Tên đăng nhập -->
+                                        <div class="form-group">    
+                                            <label asp-for="Username" class="font-weight-semibold control-label">Tên truy cập:</label>
+                                            <input class="form-control" asp-for="Username"  placeholder="User name" required pattern="^[A-Za-z0-9]{4,50}" title="*Thông tin bắt buộc! không bao gồm các ký tự đặc biệt">
+                                        </div>
+                                          <!-- Tên của khách hàng-->
+                                        <div class="form-group">
+                                            <label class="font-weight-semibold">Họ và tên:</label>
+                                            <input class="form-control" asp-for="Customer.FullName" placeholder="Vd: Bùi Đức Tuấn" required title="*Thông tin băt buộc">
+                                        </div>
+                                         <!-- Giới tính -->
+                                         <div class="form-group">
+                                            <label class="font-weight-semibold">Giới tính:</label>
+                                            <select asp-for="Customer.Gender" class ="form-control">
+                                                <option selected value="Male">Nam</option>
+                                                <option value="Female">Nữ</option>
+                                            </select>
+                                        </div>
+                                         <!-- Ngày sinh-->
+                                         <div class="form-group">
+                                            <label class="font-weight-semibold">Ngày sinh:</label>
+                                            <input required title="*Không hợp lệ!" type="date" class="form-control" asp-for="Customer.Birth" placeholder="Birth">
+                                        </div>
+                                         <!-- Email -->
+                                        <div class="form-group">
+                                            <label class="font-weight-semibold">Email:</label>
+                                            <input type="email" required title="*Vui lòng nhập đúng cú pháp vd: abc@gmail.com" class="form-control" asp-for="Customer.Email" placeholder="tramcam@gmail.com">
+                                        </div>
+                                         <!-- Số điện thoại -->
+                                        <div class="form-group">
+                                            <label class="font-weight-semibold">Số điện thoại:</label>
+                                            <input  required type="tel" maxlength="11" title="Nhập số điện thoại từ 10 đến 11 số" class="form-control" asp-for="Customer.Phone" placeholder="Phone">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="font-weight-semibold">Địa chỉ:</label>
+                                            <input  required type="text"  title="Vui lòng nhập địa chỉ" class="form-control" asp-for="Customer.Address" placeholder="Address">
+                                        </div>
+                                         <!-- Mật khẩu -->
+                                        <div class="form-group">
+                                            <label class="font-weight-semibold">Mật khẩu:</label>
+                                            <input type="password" class="form-control" asp-for="Password" pattern="[a-zA-Z0-9]{8,}" title="*Thông tin bắt buộc tối thiểu 8 ký tự" placeholder="1-8 character ">
+                                            <span asp-validation-for="Password" class="text-danger"></span>
+                                        </div>
+                                         <!-- Xác nhận mật khẩu -->
+                                        <div class="form-group">
+                                            <label class="font-weight-semibold" >Xác nhận mật khẩu:</label>
+                                            <input required type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password">
+                                        </div>
+                                         <div class="form-group">
+                                            <span class="text-danger">@error</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="d-flex align-items-center justify-content-between p-t-15">
+                                                <div class="checkbox">
+                                                    <input id="checkbox" type="checkbox">
+                                                    <label for="checkbox"><span>I have read the <a href="">agreement</a></span></label>
+                                                </div>
+                                                <button class="btn btn-primary">Đăng ký</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-none d-md-flex p-h-40 justify-content-between">
+                    <span class="">© 2022 Tuấn cùi chuối</span>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a class="text-dark text-link" href="">Legal</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="text-dark text-link" href="">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Core Vendors JS -->
+    <script src="/AdminAssets/js/vendors.min.js"></script>
+
+    <!-- page js -->
+    <!-- Core JS -->
+    <script src="/AdminAssets/js/app.min.js"></script>
+
+</body>
+
+</html>

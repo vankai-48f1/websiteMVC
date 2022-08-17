@@ -1,0 +1,56 @@
+﻿@model Coffee.Models.Account
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{
+    var notifi = TempData["notification"] as string;
+    var userExist = TempData["userExists"] as string;
+}
+
+<form class="alert alert-default col-md-8 mx-auto" method="post" asp-action="create">
+    <div class="alert alert-default">
+        <h2>Tạo tài khoản</h2>
+    </div>
+    <div>
+        <div class="form-row ">
+            <div class="form-group col-md-6">
+                <label>Tên đăng nhập:</label>
+                <input type="text" class="form-control" asp-for="Username" placeholder="User name">
+                <span class="text-danger">@userExist</span>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Vai trò:</label>
+                <select asp-for="Role" class="form-control">
+                    <option selected value="Administrator">Quản trị viên</option>
+                    <option value="Staff">Nhân viên</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row ">
+            <div class="form-group col-md-6">
+                <label>Mật khẩu</label>
+                <input type="password" class="form-control" asp-for="Password" placeholder="Password">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Xác nhận mật khẩu</label>
+                <input type="password" class="form-control" name="ConfirmPassword" placeholder="ConfirmPassword">
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="text-danger">@notifi</span>
+        </div>
+        <div class="text-right">
+            <button type="submit" class="btn btn-primary btn-tone m-r-5">Xác nhận</button>
+            <a asp-action="Index" class="btn btn-primary"><i class="anticon anticon-redo"></i> Trở về</a>
+        </div>
+
+    </div>
+</form>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

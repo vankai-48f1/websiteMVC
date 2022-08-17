@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Enlink - Admin Dashboard Template</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/AdminAssets/images/logo/favicon.png">
+    <link rel="stylesheet" href="/Custom/style.css"/>
+    <!-- page css -->
+    <link href="/AdminAssets/vendors/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+    <!-- Core css -->
+    <link href="/AdminAssets/css/app.min.css" rel="stylesheet">
+    
+
+
+</head>
+
+<body>
+    <div class="app">
+        <div class="layout">
+            <!-- Header dùng kĩ thuật PartialView -->
+            @await Html.PartialAsync("_AdminHeaderPartial.cshtml")
+            <!-- SideNav dùng kĩ thuật PartialView -->
+            @await Html.PartialAsync("_SideNavPartial.cshtml");
+            <!--Modal Popup -->
+            @await Html.PartialAsync("_PopupPartial.cshtml")
+            <!-- Page Container START -->
+            <div class="page-container">
+                <!-- VIEW BODY CONTENT -->
+                <div class="main-content" >
+                    @RenderBody()
+                </div>
+                @await Html.PartialAsync("_AdminFooterPartial.cshtml")
+            </div>
+        </div>
+        <!-- Footer  dùng kĩ thuật PartialView  -->
+
+    </div>
+
+
+    <!-- Core Vendors JS -->
+    <script src="/AdminAssets/js/vendors.min.js"></script>
+
+    <!-- page js -->
+    <script src="/AdminAssets/vendors/chartjs/Chart.min.js"></script>
+    <script src="/AdminAssets/js/pages/dashboard-default.js"></script>
+
+    <!-- page js Table-->
+    <script src="/AdminAssets/vendors/datatables/jquery.dataTables.min.js"></script>
+    <script src="/AdminAssets/vendors/datatables/dataTables.bootstrap.min.js"></script>
+    <!-- Core JS -->
+    <script src="/AdminAssets/js/app.min.js"></script>
+    @await Html.PartialAsync("_PopupPartial.cshtml")
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

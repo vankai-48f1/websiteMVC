@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Coffee.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="mb-3 col-md-14 ">
+    <h1 class="text-center">DANH SÁCH KHÁCH HÀNG</h1>
+    <table id="table_customer" class="table table-bordered dt-responsive nowrap alert alert-default">
+        <thead>
+            <tr>
+                <th>Họ và tên</th>
+                <th>Giới tính</th>
+                <th>Ngày sinh</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+                <th>Địa chỉ</th>
+                <th>Điểm tích lũy</th>
+                <th>............</th>
+            </tr>
+        </thead>
+
+    </table>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#table_customer').DataTable({
+                severSide: false,
+                responsive: true,
+                processing: true,
+                scrollY: true,
+                scrollX: true,
+                ajax:
+                {
+                    url: "/customers/jsonCustomer",
+                    dataSrc: '',
+                    datatype: "json"
+                },
+                columns: [
+                    { data: 'fullName' },
+                    {
+                        data: 'gender',
+                        render: function (gender) {
+                            if (gender == "Male") return "Nam";
+                            else return "Nữ";
+                        }
+                    },
+                    { data: 'birth' },
+                    { data: 'email' },
+                    { data: 'phone' },
+                    { data: 'address' },
+                    { data: 'point' },
+                    {
+                        data: 'id',
+                        render: function (data) {
+                            return `<a class ='btn btn-success text-white' href='/Accounts/getCustomer?id=${data}'>Chi tiết</a>`;
+                        }
+                    }
+                ],
+            });
+        });
+    </script>
+}

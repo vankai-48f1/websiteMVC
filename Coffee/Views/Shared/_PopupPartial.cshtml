@@ -1,0 +1,80 @@
+﻿@*
+    Popup hiển thị khi đăng ký thành công
+*@
+@{
+    var notification = TempData["notification"] as string;
+}
+<div class="modal fade" id="notification-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header alert alert-danger">
+                <h5 class="modal-title  ">Thông báo</h5>
+                <button type="button" class="close btn-sm" data-dismiss="modal">
+                    <i class="anticon anticon-close"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="notification-body">
+                <h5 class="text-larger">Bạn muốn đặt lại mật khẩu cho tài khoản này? </h5>
+
+            </div>
+            <div class="modal-footer text-white">
+                <form action="" class="form-accept" method="post">
+                    <input type="hidden" name="Id" value="" />
+                    <button type="submit" class="btn btn-primary btn-sm">Xác nhận</button>
+                </form>
+                @*<a class="btn btn-primary btn-sm" asp-action="">Xác nhận</a>*@
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Active Modal-->
+<div class="modal fade" id="active-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header alert alert-danger">
+                <h5 class="modal-title ">Thông báo</h5>
+                <button type="button" class="close btn-sm" data-dismiss="modal">
+                    <i class="anticon anticon-close"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="notification-body">
+                <h5 class="text-larger">Bạn muốn mở tài khoản này? </h5>
+
+            </div>
+            <div class="modal-footer text-white">
+                <form action="" class="form-accept" method="post">
+                    <input type="hidden" name="Id" value="" />
+                    <button type="submit" class="btn btn-primary btn-sm">Xác nhận</button>
+                </form>
+                @*<a class="btn btn-primary btn-sm btn-accept-unlock" asp-action="">Xác nhận</a>*@
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deactive-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header alert alert-danger">
+                <h5 class="modal-title  ">Thông báo</h5>
+                <button type="button" class="close btn-sm" data-dismiss="modal">
+                    <i class="anticon anticon-close"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="notification-body">
+                <h5 class="text-larger">Bạn muốn khóa tài khoản này? </h5>
+
+            </div>
+            <div class="modal-footer text-white">
+                <form action="" class="form-accept" method="post">
+                    <input type="hidden" name="Id" value="" />
+                    <button type="submit" class="btn btn-primary btn-sm">Xác nhận</button>
+                </form>
+                @*<a class="btn btn-primary btn-sm btn-accept-lock">Xác nhận</a>*@
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>

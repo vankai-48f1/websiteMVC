@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "datatable@2.0.2",
+      "destination": "wwwroot/AdminAssets/js/datatable/",
+      "files": [
+        "js/datatable.min.js",
+        "css/datatable-bootstrap.css",
+        "css/datatable-bootstrap.min.css",
+        "css/datatable.css",
+        "css/datatable.min.css",
+        "js/datatable.jquery.js",
+        "js/datatable.jquery.min.js",
+        "js/datatable.js"
+      ]
+    }
+  ]
+}
